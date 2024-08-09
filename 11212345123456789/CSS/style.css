@@ -1,0 +1,59 @@
+body {
+    font-family: 'Tajawal', sans-serif; /* استخدم خط أنيق بالعربي */
+    background-color: #1a1a1a; /* لون الخلفية الأساسي، رمادي غامق */
+    color: #f5f5f5; /* لون النص الأساسي، فاتح عشان يبرز على الخلفية */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 1.8; /* المسافات بين الأسطر أوسع */
+    transition: background-color 6s ease; /* انتقال سلس للون الخلفية */
+}
+
+.content {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 30px;
+    background-color: #333; /* خلفية المحتوى، رمادي أفتح */
+    border-radius: 15px; /* الحواف دائرية أكثر */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* ظل محتوى أعمق */
+    transition: background-color 6s ease; /* انتقال سلس للون الخلفية داخل المحتوى */
+}
+
+h1 {
+    color: #ff6699; /* لون العنوان وردي فاقع */
+    font-size: 36px; /* حجم العنوان كبير */
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 20px; /* حجم النص أكبر */
+    margin: 15px 0; /* المسافات بين الفقرات أوسع */
+    color: #e0e0e0; /* لون النص أفتح */
+}
+
+/* ستايل خاص بالإيموجي */
+.kiss {
+    position: absolute;
+    font-size: 50px; /* حجم الإيموجي */
+    animation: disappear 6s forwards; /* حركة تختفي بعد 6 ثواني */
+}
+
+/* حركة الاختفاء */
+@keyframes disappear {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-200px); /* يرتفع للأعلى مع الاختفاء */
+    }
+}
+
+/* الخلفية الوردي مع تأثير تدريجي */
+.pink-background {
+    background-color: #ff69b4; /* لون وردي */
+}
+
+.pink-text h1, .pink-text p {
+    color: #fff; /* لون النص أبيض أثناء ظهور الخلفية الوردية */
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لولي</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <style>
+        /* ستايل خاص بالإيموجي */
+        .kiss {
+            position: absolute;
+            font-size: 50px; /* حجم الإيموجي */
+            animation: disappear 6s forwards; /* حركة تختفي بعد 6 ثواني */
+        }
+
+        /* حركة الاختفاء */
+        @keyframes disappear {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-200px); /* يرتفع للأعلى مع الاختفاء */
+            }
+        }
+
+        /* الخلفية الوردي مع تأثير تدريجي */
+        .pink-background {
+            background-color: #ff69b4; /* لون وردي */
+            transition: background-color 2s ease; /* تغيير تدريجي للخلفية على مدار 2 ثانية */
+        }
+
+        /* لتغيير لون النص وقت تحول الخلفية */
+        .content.pink-text h1, .content.pink-text p {
+            color: #1a1a1a; /* لون داكن للنص */
+            transition: color 2s ease; /* تغيير تدريجي للون النص */
+        }
+
+        /* تصميم الصفحة بالكامل */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* لون الخلفية الأساسي */
+            text-align: center; /* محاذاة النصوص في المنتصف */
+            padding: 20px;
+        }
+
+        .content {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff85c2;
+        }
+
+        /* تصميم خاص لشاشات الجوال */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            button {
+                font-size: 1em;
+                padding: 8px 16px;
+            }
+
+            .kiss {
+                font-size: 40px; /* تصغير حجم الإيموجي على الشاشات الصغيرة */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content" id="content">
+        <h1>لعيونك لولي</h1>
+        <p>لا تتحديني يا حلوه</p>
+        <p>اسهل شي سويته بحياتي</p>
+        <p>اممممم معرف شكتب بعد بس يعني لا تصدقين قوقل بعضهم هبيده</p>
+        
+        <!-- هنا الزر -->
+        <button id="kissButton">جربي اضغطي هنا </button>
+        
+        <!-- هنا المكان اللي حيظهر فيه الإيموجي -->
+        <div id="kissContainer"></div>
+    </div>
+
+    <script>
+        // كود الجافا سكريبت لعرض الإيموجي وتغيير الخلفية
+        document.getElementById("kissButton").onclick = function() {
+            // تغيير لون الخلفية للوردي
+            document.body.classList.add("pink-background");
+            document.getElementById("content").classList.add("pink-text");
+
+            // إنشاء 20 إيموجي شفايف
+            for (let i = 0; i < 20; i++) {
+                createKiss();
+            }
+
+            // إعادة لون الخلفية والنص للوضع الطبيعي بعد 6 ثواني
+            setTimeout(function() {
+                document.body.classList.remove("pink-background");
+                document.getElementById("content").classList.remove("pink-text");
+            }, 6000);
+        }
+
+        function createKiss() {
+            // إنشاء عنصر الإيموجي
+            var kiss = document.createElement("div");
+            kiss.className = "kiss";
+            kiss.innerHTML = "💋";
+
+            // تحديد مكان عشوائي في الصفحة
+            kiss.style.left = Math.random() * window.innerWidth + "px";
+            kiss.style.top = Math.random() * window.innerHeight + "px";
+
+            // إضافة الإيموجي للصفحة
+            document.body.appendChild(kiss);
+
+            // إزالة الإيموجي بعد 6 ثواني
+            setTimeout(function() {
+                kiss.remove();
+            }, 6000);
+        }
+    </script>
+</body>
+</html>
